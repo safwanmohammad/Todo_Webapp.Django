@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col md-12 py-5">
+            <div class=" ">
+                 <h1 class="d-flex justify-content-center align-self-center text-warning"><b>Task to be completed</b></h1>
+            </div>
+            <div class="card m-2 bg-black text-warning py-3">
+                <div class="card m-2 bg-black text-warning">
+                    <div class="card-body justify-content-center align-self-center">
+                        <h5 class="card-title shadow">{{task.name}}</h5>
+                        <p class="card-title shadow">{{task.priority}}</p>
+                        <p class="card-title shadow">{{task.date}}</p>
+                        <a class="btn btn-primary" href="{% url 'update_todo' task.id %}">Edit</a>
+                        <a class="btn btn-danger" href="{% url 'delete_todo' task.id %}">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

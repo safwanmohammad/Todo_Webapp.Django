@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid bg-black text-warning p-3">
+    <div class="row">
+        <div class="col md-12 d-flex justify-content-center align-self-center">
+            <div class="banner ">
+                <h2 class="hd">ToDo</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row bg-warning">
+        <div class="col md-6 d-flex justify-content-center align-self-center py-4">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="">
+                    <div class="">
+<!--                        <h2 class="px-5"><b>Name</b></h2><br>-->
+                        <input class="form-control shadow " name="name" placeholder="enter the name" style=""
+                               type="text"> <br>
+                    </div>
+                    <div>
+<!--                        <h2 class="px-5"><b>Priority</b></h2><br>-->
+                        <input class="form-control  shadow" name="priority" placeholder="enter the priority"
+                               type="text"><br>
+                    </div>
+                    <div>
+<!--                        <h2 class="px-5"><b>Date</b></h2><br>-->
+                        <input class="form-control  shadow" name="date"
+                               type="date"><br>
+                    </div>
+                    <div class="d-flex justify-content-center align-self-center">
+                        <button class="btn btn-dark text-warning  ">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col md-6 py-3">
+            <h1 class="d-flex justify-content-center align-self-center side_rt"><b>Task to be completed</b></h1>
+            {% for i in task %}
+            <div class="card m-2 bg-black text-warning">
+                <div class="card-body">
+                    <h5 class="card-title shadow">{{i.name}}</h5>
+                    <p class="card-title shadow">{{i.priority}}</p>
+                    <p class="card-title shadow">{{i.date}}</p>
+                    <a class="btn btn-primary"href="{% url 'update_todo' i.id %}">Update</a>
+                    <a class="btn btn-danger" href="{% url 'delete_todo' i.id %}">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="container-fluid absolute">
+    <div class="row">
+        <div class="text-center">
+            <p class="" >@copyright reserved by abc limited</p>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

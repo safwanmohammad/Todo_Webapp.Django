@@ -1,0 +1,25 @@
+body {
+  background-color: black;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(240, 173, 78);
+  opacity: 1; /* Firefox */
+}
+
+/*** home **/
+
+.side_rt{
+     letter-spacing: .1rem;
+    text-transform: uppercase;
+    }
+.hd{
+    letter-spacing:.2rem;
+    }
+
+.absolute {
+  position: absolute;
+  bottom: 10px;
+  color: rgb(240, 173, 78);
+  letter-spacing:.1rem;
+}

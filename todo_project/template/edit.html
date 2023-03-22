@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row bg">
+        <div class="col md-12 pt-5">
+            <div class=" d-flex justify-content-center align-self-center">
+                    <h2 class="text-warning">Edit your ToDo</h2>
+            </div>
+            <div class="bg-warning p-5 d-flex  justify-content-center align-self-center">
+                <form method="POST" class=" justify-content-center align-self-center">
+                    {% csrf_token %}
+                    {{f.as_p}}
+                    <button class="btn btn-primary ml-5" style="margin-left: 100px">Done</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
